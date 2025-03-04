@@ -1,6 +1,6 @@
 {
   "name": "@hannesrudolph/mcp-ragdocs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An MCP server for semantic documentation search and retrieval using vector databases to augment LLM capabilities.",
   "private": false,
   "type": "module",
@@ -45,6 +45,7 @@
     "@qdrant/js-client-rest": "1.12.0",
     "axios": "1.7.9",
     "cheerio": "1.0.0",
+    "ollama": "^0.5.14",
     "openai": "4.76.2",
     "playwright": "1.49.1"
   },

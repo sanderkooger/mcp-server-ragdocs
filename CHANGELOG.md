@@ -1,8 +1,23 @@
 # Changelog
 
+## [1.1.1] - 2025-03-04
+
+### Added
+
+- Ollama support for embeddings generation
+  - Integrated with Ollama API endpoints
+  - Added EMBEDDINGS_PROVIDER and OLLAMA_BASE_URL environment variables
+
+### Changed
+
+- Updated environment variable requirements
+  - Now requires EMBEDDINGS_PROVIDER and OLLAMA_BASE_URL for embeddings
+  - Documented variables in README.md and configuration files
+
 ## [1.1.0] - 2024-03-14
 
 ### Initial Feature Addition
+
 - Implemented new clear_queue tool for queue management
   - Created src/tools/clear-queue.ts with core functionality
   - Added handler in src/handlers/clear-queue.ts
@@ -10,12 +25,14 @@
   - Added tool exports and registration
 
 ### Code Organization
+
 - Improved tool ordering in handler-registry.ts
   - Moved remove_documentation before extract_urls
   - Enhanced logical grouping of related tools
   - Updated imports to match new ordering
 
 ### Documentation Enhancement Phase 1
+
 - Enhanced tool descriptions in handler-registry.ts:
   1. search_documentation
      - Added natural language query support details
@@ -43,6 +60,7 @@
      - Documented URL re-adding requirements
 
 ### Documentation Enhancement Phase 2
+
 - Updated README.md
   - Removed add_documentation and queue_documentation tools
   - Updated tool descriptions to match handler-registry.ts
