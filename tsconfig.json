@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "Node16",
-    "moduleResolution": "Node16",
+    "target": "ES2023", // Node.js 22 supports ES2023 features
+    "module": "NodeNext", // Align with Node.js 22's ESM support
+    "moduleResolution": "NodeNext",
     "outDir": "./build",
     "rootDir": "./src",
     "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
