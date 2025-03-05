@@ -12,15 +12,7 @@ const EMBEDDINGS_PROVIDER = process.env.EMBEDDINGS_PROVIDER || "ollama";
 const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL;
 
 if (!QDRANT_URL) {
-  throw new Error(
-    "QDRANT_URL environment variable is required for cloud storage"
-  );
-}
-
-if (!QDRANT_API_KEY) {
-  throw new Error(
-    "QDRANT_API_KEY environment variable is required for cloud storage"
-  );
+  throw new Error("QDRANT_URL environment variable is required");
 }
 
 export class ApiClient {
@@ -33,7 +25,7 @@ export class ApiClient {
     // Initialize Qdrant client with cloud configuration
     this.qdrantClient = new QdrantClient({
       url: QDRANT_URL,
-      apiKey: QDRANT_API_KEY,
+      ...(QDRANT_API_KEY && { apiKey: QDRANT_API_KEY }),
     });
 
     // Initialize OpenAI client if API key is provided
