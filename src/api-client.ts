@@ -5,11 +5,12 @@ import { chromium } from "playwright";
 import { McpError, ErrorCode } from "@modelcontextprotocol/sdk/types.js";
 
 // Environment variables for configuration
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const QDRANT_URL = process.env.QDRANT_URL;
-const QDRANT_API_KEY = process.env.QDRANT_API_KEY;
-const EMBEDDINGS_PROVIDER = process.env.EMBEDDINGS_PROVIDER || "ollama";
-const OLLAMA_BASE_URL = process.env.OLLAMA_BASE_URL;
+const OPENAI_API_KEY = process.env["OPENAI_API_KEY"];
+const QDRANT_URL = process.env["QDRANT_URL"];
+if (!QDRANT_URL) throw new Error("QDRANT_URL environment variable required");
+const QDRANT_API_KEY = process.env["QDRANT_API_KEY"];
+const EMBEDDINGS_PROVIDER = process.env["EMBEDDINGS_PROVIDER"] || "ollama";
+const OLLAMA_BASE_URL = process.env["OLLAMA_BASE_URL"];
 
 if (!QDRANT_URL) {
   throw new Error("QDRANT_URL environment variable is required");
@@ -24,8 +25,8 @@ export class ApiClient {
   constructor() {
     // Initialize Qdrant client with cloud configuration
     this.qdrantClient = new QdrantClient({
-      url: QDRANT_URL,
-      ...(QDRANT_API_KEY && { apiKey: QDRANT_API_KEY }),
+      url: QDRANT_URL!,
+      ...(QDRANT_API_KEY ? { apiKey: QDRANT_API_KEY } : {}),
     });
 
     // Initialize OpenAI client if API key is provided
@@ -76,7 +77,7 @@ export class ApiClient {
           model: "text-embedding-ada-002",
           input: text,
         });
-        return response.data[0].embedding;
+        return response.data?.[0]?.embedding || [];
       } catch (error) {
         throw new McpError(
           ErrorCode.InternalError,
