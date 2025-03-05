@@ -16,12 +16,25 @@ if (!QDRANT_URL) {
   throw new Error("QDRANT_URL environment variable is required");
 }
 
+/**
+ * Client for managing connections to various AI service providers and vector database
+ * @class
+ */
 export class ApiClient {
+  /** Qdrant vector database client instance */
   qdrantClient: QdrantClient;
+  /** OpenAI client instance (if configured) */
   openaiClient?: OpenAI;
+  /** Ollama client instance (if configured) */
   ollamaClient?: Ollama;
+  /** Headless browser instance for web interactions */
   browser: any;
 
+  /**
+   * Initializes API clients based on environment configuration
+   * @constructor
+   * @throws {Error} If QDRANT_URL environment variable is missing
+   */
   constructor() {
     // Initialize Qdrant client with cloud configuration
     this.qdrantClient = new QdrantClient({
@@ -44,12 +57,22 @@ export class ApiClient {
     }
   }
 
+  /**
+   * Initializes a headless browser instance for web scraping/interactions
+   * @async
+   * @returns {Promise<void>}
+   */
   async initBrowser() {
     if (!this.browser) {
       this.browser = await chromium.launch();
     }
   }
 
+  /**
+   * Cleans up resources and closes browser instance
+   * @async
+   * @returns {Promise<void>}
+   */
   async cleanup() {
     if (this.browser) {
       await this.browser.close();
@@ -107,6 +130,13 @@ export class ApiClient {
     );
   }
 
+  /**
+   * Initializes Qdrant vector database collection with optimal configuration
+   * @async
+   * @param {string} COLLECTION_NAME - Name of the collection to initialize
+   * @returns {Promise<void>}
+   * @throws {McpError} If collection creation fails due to authentication or connection issues
+   */
   async initCollection(COLLECTION_NAME: string) {
     try {
       const collections = await this.qdrantClient.getCollections();
