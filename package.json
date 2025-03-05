@@ -1,11 +1,11 @@
 {
-  "name": "@hannesrudolph/mcp-ragdocs",
+  "name": "@sanderkooger/mcp-ragdocs",
   "version": "1.1.1",
   "description": "An MCP server for semantic documentation search and retrieval using vector databases to augment LLM capabilities.",
   "private": false,
   "type": "module",
   "bin": {
-    "@hannesrudolph/mcp-ragdocs": "./build/index.js"
+    "@sanderkooger/mcp-ragdocs": "./build/index.js"
   },
   "files": [
     "build",
@@ -33,12 +33,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hannesrudolph/mcp-ragdocs.git"
+    "url": "git+https://github.com/sanderkooger/mcp-server-ragdocs.git"
   },
   "bugs": {
-    "url": "https://github.com/hannesrudolph/mcp-ragdocs/issues"
+    "url": "https://github.com/sanderkooger/mcp-server-ragdocs/issues"
   },
-  "homepage": "https://github.com/hannesrudolph/mcp-ragdocs#readme",
+  "homepage": "https://github.com/sanderkooger/mcp-server-ragdocs#readme",
   "dependencies": {
     "@azure/openai": "2.0.0",
     "@modelcontextprotocol/sdk": "1.0.3",

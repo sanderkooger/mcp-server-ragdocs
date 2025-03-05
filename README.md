@@ -140,6 +140,16 @@ ollama list
 
 This MCP server is licensed under the MIT License. This means you are free to use, modify, and distribute the software, subject to the terms and conditions of the MIT License. For more details, please see the LICENSE file in the project repository.
 
-## Acknowledgments
+## Forkception Acknowledgments
 
-This project is a fork of [qpd-v/mcp-ragdocs](https://github.com/qpd-v/mcp-ragdocs), originally developed by qpd-v. The original project provided the foundation for this implementation.
+## Contributing
+
+We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, but here are the basics:
+
+1. Fork the repository
+2. Install dependencies: `npm install`
+3. Create a feature branch: `git checkout -b feat/your-feature`
+4. Commit changes following [Conventional Commits](https://www.conventionalcommits.org)
+5. Push to your fork and open a PR
+
+This project is based on a fork of [hannesrudolph/mcp-ragdocs](https://github.com/hannesrudolph/mcp-ragdocs), which itself was forked from the original work by [qpd-v/mcp-ragdocs](https://github.com/qpd-v/mcp-ragdocs). The original project provided the foundation for this implementation.
