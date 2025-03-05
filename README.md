@@ -1,5 +1,9 @@
 # RAG Documentation MCP Server
 
+[![Node.js Package](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/npm-publish.yml)
+[![Version](https://img.shields.io/npm/v/@sanderkooger/mcp-server-ragdocs)](https://npmjs.com/package/@sanderkooger/mcp-server-ragdocs)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 An MCP server implementation that provides tools for retrieving and processing documentation through vector search, enabling AI assistants to augment their responses with relevant documentation context.
 
 ## Features
@@ -66,6 +70,10 @@ The RAG Documentation tool is designed for:
 
 ## Configuration
 
+}
+
+````
+
 ### Usage with Claude Desktop
 
 Add this to your `claude_desktop_config.json`:
@@ -87,7 +95,7 @@ Add this to your `claude_desktop_config.json`:
     }
   }
 }
-```
+````
 
 ### Ollama Configuration
 

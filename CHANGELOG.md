@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.2] - 2025-03-05
+
+### Added
+
+- Strict TypeScript configuration
+  - Enabled all strict type-checking options
+  - Added explicit type annotations throughout codebase
+
+### Changed
+
+- Updated README documentation
+  - Added configuration details for strict TypeScript
+  - Improved tool descriptions
+  - Enhanced setup instructions
+
 ## [1.1.1] - 2025-03-04
 
 ### Added
