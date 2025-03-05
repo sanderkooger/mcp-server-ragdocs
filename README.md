@@ -77,7 +77,7 @@ Add this to your `claude_desktop_config.json`:
   "mcpServers": {
     "rag-docs-openai": {
       "command": "npx",
-      "args": ["-y", "@hannesrudolph/mcp-ragdocs"],
+      "args": ["-y", "@sanderkooger/mcp-server-ragdocs"],
       "env": {
         "EMBEDDINGS_PROVIDER": "openai",
         "OPENAI_API_KEY": "your-openai-key-here",
@@ -96,7 +96,7 @@ Add this to your `claude_desktop_config.json`:
   "mcpServers": {
     "rag-docs-ollama": {
       "command": "npx",
-      "args": ["-y", "@hannesrudolph/mcp-ragdocs"],
+      "args": ["-y", "@sanderkooger/mcp-server-ragdocs"],
       "env": {
         "EMBEDDINGS_PROVIDER": "ollama",
         "OLLAMA_BASE_URL": "http://localhost:11434",
@@ -140,8 +140,6 @@ ollama list
 
 This MCP server is licensed under the MIT License. This means you are free to use, modify, and distribute the software, subject to the terms and conditions of the MIT License. For more details, please see the LICENSE file in the project repository.
 
-## Forkception Acknowledgments
-
 ## Contributing
 
 We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, but here are the basics:
@@ -151,5 +149,7 @@ We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for 
 3. Create a feature branch: `git checkout -b feat/your-feature`
 4. Commit changes following [Conventional Commits](https://www.conventionalcommits.org)
 5. Push to your fork and open a PR
+
+## Forkception Acknowledgments
 
 This project is based on a fork of [hannesrudolph/mcp-ragdocs](https://github.com/hannesrudolph/mcp-ragdocs), which itself was forked from the original work by [qpd-v/mcp-ragdocs](https://github.com/qpd-v/mcp-ragdocs). The original project provided the foundation for this implementation.
