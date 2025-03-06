@@ -32,7 +32,23 @@ npm run build
 
 ### Commit Process
 
-NOTE Write the process out in a better way!
+### Commit Validation Workflow
+
+We use [Husky](https://typicode.github.io/husky/) and [commitlint](https://commitlint.js.org/) to enforce message format:
+
+1. Stage changes with `git add`
+2. Attempt commit - validation runs automatically
+3. If rejected:
+   - Fix message format
+   - Retry commit
+
+Example workflow:
+
+```bash
+git add .
+git commit -m "invalid message" # Fails
+git commit -m "feat: add validation workflow" # Succeeds
+```
 
 ### Pull Requests
 
@@ -50,7 +66,7 @@ NOTE Write the process out in a better way!
 
 ## Commit Message Format
 
-We enforce [Conventional Commits](https://www.conventionalcommits.org) using automated validation:
+We enforce [Conventional Commits](https://www.conventionalcommits.org) specification:
 
 ```
 <type>(<scope>): <description>
@@ -58,12 +74,24 @@ We enforce [Conventional Commits](https://www.conventionalcommits.org) using aut
 
 ### Allowed Types:
 
-- feat: New feature
-- fix: Bug fix
-- docs: Documentation changes
 - chore: Maintenance tasks
+- feat: New features
+- fix: Bug fixes
+- docs: Documentation changes
+- style: Code formatting
 - refactor: Code refactoring
-- test: Test additions/modifications
+- test: Test updates
+- revert: Revert changes
+- build: Build system updates
+- ci: CI configuration changes
+
+Examples:
+
+```bash
+feat: add documentation search endpoint
+fix: resolve timeout issues in queue processing
+docs: update API reference documentation
+```
 
 ## Pull Request Process
 
