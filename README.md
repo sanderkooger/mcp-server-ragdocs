@@ -1,4 +1,4 @@
-# RAG Documentation MCP Server
+# MCP-server_ragdocs
 
 [![Node.js Package](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/npm-publish.yml)
 ![NPM Downloads](https://img.shields.io/npm/dy/%40sanderkooger%2Fmcp-server-ragdocs)
@@ -14,6 +14,37 @@ An MCP server implementation that provides tools for retrieving and processing d
 - Semantic search capabilities
 - Automated documentation processing
 - Real-time context augmentation for LLMs
+
+## Project Structure
+
+```
+mcp-server-ragdocs/
+├── src/
+│   ├── api-client.ts        # Qdrant vector database client
+│   ├── handler-registry.ts # MCP request handler registration
+│   ├── index.ts            # Server entry point
+│   ├── types.ts            # Type definitions
+│   └── handlers/           # MCP tool implementations
+│       ├── add-documentation.ts
+│       ├── base-handler.ts
+│       ├── clear-queue.ts
+│       ├── extract-urls.ts
+│       ├── index.ts
+│       ├── list-queue.ts
+│       ├── list-sources.ts
+│       ├── remove-documentation.ts
+│       └── run-queue.ts
+└── tools/                 # MCP tool definitions
+    ├── base-tool.ts
+    ├── clear-queue.ts
+    ├── extract-urls.ts
+    ├── index.ts
+    ├── list-queue.ts
+    ├── list-sources.ts
+    ├── remove-documentation.ts
+    ├── run-queue.ts
+    └── search-documentation.ts
+```
 
 ## Tools
 
@@ -73,7 +104,21 @@ The RAG Documentation tool is designed for:
 
 }
 
-````
+```json
+{
+  "mcpServers": {
+    "rag-docs": {
+      "command": "npx",
+      "args": ["-y", "@sanderkooger/mcp-server-ragdocs"],
+      "env": {
+        "EMBEDDINGS_PROVIDER": "ollama",
+        "QDRANT_URL": "your-qdrant-url",
+        "QDRANT_API_KEY": "your-qdrant-key"
+      }
+    }
+  }
+}
+```
 
 ### Usage with Claude Desktop
 
@@ -96,7 +141,7 @@ Add this to your `claude_desktop_config.json`:
     }
   }
 }
-````
+```
 
 ### Ollama Configuration
 

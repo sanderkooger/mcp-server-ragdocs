@@ -1,0 +1,36 @@
+# RAG Documentation Server Agreements
+
+This file stores agreed-upon conventions and prompt context for interacting with the AI assistant.
+
+## Formatting Rules
+
+- Add new agreements under relevant sections with dates
+- Use `code fences` for technical terms
+- Prefix temporary rules with [WIP]
+
+## Core Agreements
+
+- Repository hosts only one TypeScript package
+
+## Documentation Structure (2025-03-06)
+
+1. Main README.md serves as package consumer documentation:
+
+   - Must include package consumption instructions (installation, basic usage)
+   - Contains high-level overview and essential usage
+   - Links to detailed documentation files (e.g. TECHNICAL_DESIGN.md)
+   - Development/debug setup belongs in CONTRIBUTING.md
+   - Maintains these mandatory sections:
+     - Main Title
+     - Badges
+     - Introduction (1-3 sentence summary)
+     - Features
+     - Table of Contents
+
+2. Documentation maintenance rules:
+   - New chapters require immediate Table of Contents updates
+   - Technical design specifics reside in TECHNICAL_DESIGN.md
+   - Contributor guidelines remain in CONTRIBUTING.md
+   - Additional documentation files must include ## "A TITLE" section with:
+     - One-sentence summary of the file's purpose
+     - Link to the related MD file for detailed guidelines
