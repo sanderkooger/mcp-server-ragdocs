@@ -1,5 +1,19 @@
 # MCP-server_ragdocs
 
+## Table of Contents
+
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Tools](#tools)
+- [Deployment](#deployment)
+  - [Local Development](#local-development)
+  - [Cloud Deployment](#cloud-deployment)
+- [Configuration](#configuration)
+- [Using Ollama Embeddings](#using-ollama-embeddings)
+- [License](#license)
+- [Contributing](#contributing)
+- [Forkception Acknowledgments](#forkception-acknowledgments)
+
 [![Node.js Package](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/npm-publish.yml)
 ![NPM Downloads](https://img.shields.io/npm/dy/%40sanderkooger%2Fmcp-server-ragdocs)
 [![Version](https://img.shields.io/npm/v/@sanderkooger/mcp-server-ragdocs)](https://npmjs.com/package/@sanderkooger/mcp-server-ragdocs)
@@ -17,34 +31,7 @@ An MCP server implementation that provides tools for retrieving and processing d
 
 ## Project Structure
 
-```
-mcp-server-ragdocs/
-├── src/
-│   ├── api-client.ts        # Qdrant vector database client
-│   ├── handler-registry.ts # MCP request handler registration
-│   ├── index.ts            # Server entry point
-│   ├── types.ts            # Type definitions
-│   └── handlers/           # MCP tool implementations
-│       ├── add-documentation.ts
-│       ├── base-handler.ts
-│       ├── clear-queue.ts
-│       ├── extract-urls.ts
-│       ├── index.ts
-│       ├── list-queue.ts
-│       ├── list-sources.ts
-│       ├── remove-documentation.ts
-│       └── run-queue.ts
-└── tools/                 # MCP tool definitions
-    ├── base-tool.ts
-    ├── clear-queue.ts
-    ├── extract-urls.ts
-    ├── index.ts
-    ├── list-queue.ts
-    ├── list-sources.ts
-    ├── remove-documentation.ts
-    ├── run-queue.ts
-    └── search-documentation.ts
-```
+The package follows a modular architecture with clear separation between core components and MCP protocol handlers. See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed structural documentation and design decisions.
 
 ## Tools
 
@@ -89,6 +76,53 @@ Process and index all URLs currently in the documentation queue. Each URL is pro
 ### clear_queue
 
 Remove all pending URLs from the documentation processing queue. Use this to reset the queue when you want to start fresh, remove unwanted URLs, or cancel pending processing. This operation is immediate and permanent - URLs will need to be re-added if you want to process them later.
+
+## Table of Contents
+
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Tools](#tools)
+- [Usage](#usage)
+- [Deployment](#deployment)
+  - [Local Development](#local-development)
+  - [Cloud Deployment](#cloud-deployment)
+- [Configuration](#configuration)
+- [Using Ollama Embeddings](#using-ollama-embeddings)
+- [License](#license)
+- [Contributing](#contributing)
+- [Forkception Acknowledgments](#forkception-acknowledgments)
+
+## Deployment
+
+### Local Deployment
+
+The repository includes Docker Compose configuration for local development:
+
+```bash
+docker compose up -d
+```
+
+This starts:
+
+- Qdrant vector database on port 6333
+- Ollama LLM service on port 11434
+
+Access endpoints:
+
+- Qdrant: http://localhost:6333
+- Ollama: http://localhost:11434
+
+### Cloud Deployment
+
+For production deployments:
+
+1. Use hosted Qdrant Cloud service
+2. Set these environment variables:
+
+```bash
+QDRANT_URL=your-cloud-cluster-url
+QDRANT_API_KEY=your-cloud-api-key
+```
 
 ## Usage
 
