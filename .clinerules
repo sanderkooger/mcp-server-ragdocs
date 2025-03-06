@@ -12,6 +12,18 @@ This file stores agreed-upon conventions and prompt context for interacting with
 
 - Repository hosts only one TypeScript package
 
+## GitHub MCP Usage (2025-03-06)
+
+- Use GitHub MCP tools only for:
+  - Issue/pull request comments
+  - Creating/updating issues
+  - Repository metadata operations
+  - updating secrets
+  - etc
+- For commits/branches/pushes, use CLI commands
+- Never store GitHub credentials in code/configs
+- always read the .git/config, or root package.json of the repo you are working on to determine the repository owner and name
+
 ## Documentation Structure (2025-03-06)
 
 1. Main README.md serves as package consumer documentation:
@@ -31,6 +43,8 @@ This file stores agreed-upon conventions and prompt context for interacting with
    - New chapters require immediate Table of Contents updates
    - Technical design specifics reside in TECHNICAL_DESIGN.md
    - Contributor guidelines remain in CONTRIBUTING.md
+   - AI-specific instructions belong in .clinerules
+   - Human-facing documentation lives in MD files (README.md, CONTRIBUTING.md etc.)
    - Additional documentation files must include ## "A TITLE" section with:
      - One-sentence summary of the file's purpose
      - Link to the related MD file for detailed guidelines

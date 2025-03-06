@@ -23,6 +23,23 @@ npm install
 npm run build
 ```
 
+## Development Workflow
+
+### Branch Strategy
+
+- All changes must be made through feature branches (`feat/...`)
+- Direct commits to main branch are blocked
+
+### Commit Process
+
+NOTE Write the process out in a better way!
+
+### Pull Requests
+
+- Require 1+ approved review
+- All CI checks must pass
+- Enforce linear commit history
+
 ## Coding Standards
 
 - Follow TypeScript best practices
@@ -33,13 +50,13 @@ npm run build
 
 ## Commit Message Format
 
-We follow [Conventional Commits](https://www.conventionalcommits.org):
+We enforce [Conventional Commits](https://www.conventionalcommits.org) using automated validation:
 
 ```
 <type>(<scope>): <description>
 ```
 
-Allowed types:
+### Allowed Types:
 
 - feat: New feature
 - fix: Bug fix
