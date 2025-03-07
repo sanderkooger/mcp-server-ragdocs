@@ -1,0 +1,13 @@
+{
+  "trailingComma": "none",
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true,
+  "arrowParens": "always",
+  "overrides": [
+    {
+      "files": "*",
+      "excludeFiles": ["build/**/*", "node_modules/**/*"]
+    }
+  ]
+}
