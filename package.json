@@ -4,7 +4,7 @@
   "description": "An MCP server for semantic documentation search and retrieval using vector databases to augment LLM capabilities.",
   "private": false,
   "engines": {
-    "npm": ">=10.9.0",
+    "npm": ">=10.0.0",
     "yarn": "please-use-npm",
     "pnpm": "please-use-npm",
     "node": ">=20.0.0"
