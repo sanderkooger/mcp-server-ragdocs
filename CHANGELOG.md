@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.1.4...v1.2.0) (2025-03-07)
+
+
+### Bug Fixes
+
+* installed semantic-versioning plugins in package.json ([c8702d5](https://github.com/sanderkooger/mcp-server-ragdocs/commit/c8702d53686cb92d65d135edaa2e06226bc1c43b))
+
+
+### Features
+
+* add test file ([a478fc9](https://github.com/sanderkooger/mcp-server-ragdocs/commit/a478fc9f223af9756d18296fcabba2163db21f0a))
+
 # Changelog
 
 ## [1.1.2] - 2025-03-05
