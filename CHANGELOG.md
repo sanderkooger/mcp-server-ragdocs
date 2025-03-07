@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.2.0...v1.2.1) (2025-03-07)
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([e296799](https://github.com/sanderkooger/mcp-server-ragdocs/commit/e296799a2371feee9f625d554f43c7d06f253b62))
+
 # [1.2.0](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.1.4...v1.2.0) (2025-03-07)
 
 
