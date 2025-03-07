@@ -3,6 +3,12 @@
   "version": "1.1.4",
   "description": "An MCP server for semantic documentation search and retrieval using vector databases to augment LLM capabilities.",
   "private": false,
+  "engines": {
+    "npm": ">=10.9.0",
+    "yarn": "please-use-npm",
+    "pnpm": "please-use-npm",
+    "node": ">=20.0.0"
+  },
   "type": "module",
   "bin": {
     "@sanderkooger/mcp-server-ragdocs": "./build/index.js"
@@ -13,11 +19,15 @@
     "LICENSE"
   ],
   "scripts": {
+    "prepare": "husky",
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
-    "prepare": "npx husky init",
+    "test": "echo 'no tests implemented' && exit 0",
+    "lint": "echo 'no linter implemented' && exit 0",
+    "ci": "npm run build && npm run lint && npm run test",
     "watch": "tsc --watch",
+    "start": "node build/index.js",
     "inspector": "npx @modelcontextprotocol/inspector build/index.js",
-    "start": "node build/index.js"
+    "clean": "rimraf node_modules/ build/"
   },
   "keywords": [
     "mcp",
@@ -55,6 +65,7 @@
     "@types/node": "^22.13.9",
     "conventional-changelog-atom": "^5.0.0",
     "husky": "^9.1.7",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },

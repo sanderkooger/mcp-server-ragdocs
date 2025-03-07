@@ -14,7 +14,7 @@
 - [Contributing](#contributing)
 - [Forkception Acknowledgments](#forkception-acknowledgments)
 
-[![Node.js Package](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/npm-publish.yml)
+[![Node.js Package](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/release.yml/badge.svg)](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/npm-publish.yml)
 ![NPM Downloads](https://img.shields.io/npm/dy/%40sanderkooger%2Fmcp-server-ragdocs)
 [![Version](https://img.shields.io/npm/v/@sanderkooger/mcp-server-ragdocs)](https://npmjs.com/package/@sanderkooger/mcp-server-ragdocs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

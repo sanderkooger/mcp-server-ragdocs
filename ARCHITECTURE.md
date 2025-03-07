@@ -62,7 +62,27 @@ mcp-server-ragdocs/
 
 ## Design Decisions
 
+- **Semantic Versioning**: Strict adherence to SemVer through commit conventions and automated releases
 - Modular architecture for easy embedding provider swaps
 - Batch processing for scalability
 - Type-safe implementation with TypeScript
 - Convention-over-configuration for handler registration
+- npm package manager enforcement via engine-strict configuration
+
+## CI/CD Pipeline
+
+### Release Workflow
+
+1. Semantic-release analyzes commits
+2. Automatically bumps version based on commit types
+3. Generates changelog
+4. Publishes to npm registry
+5. Creates GitHub release
+
+### Quality Gates
+
+- All tests must pass
+- 100% code coverage enforcement
+- Linting/formatting checks
+- Commit message validation
+- Dependency vulnerability scanning

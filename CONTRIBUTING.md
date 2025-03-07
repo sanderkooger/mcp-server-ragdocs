@@ -11,10 +11,11 @@ git clone https://github.com/your-username/mcp-server-ragdocs.git
 cd mcp-server-ragdocs
 ```
 
-2. Install dependencies:
+2. Install dependencies (npm required):
 
 ```bash
 npm install
+# Enforced by .npmrc engine-strict=true
 ```
 
 3. Build the project:
@@ -34,7 +35,21 @@ npm run build
 
 ### Commit Validation Workflow
 
-We use [Husky](https://typicode.github.io/husky/) and [commitlint](https://commitlint.js.org/) to enforce message format:
+We enforce commit standards through:
+
+- [Husky](https://typicode.github.io/husky/) pre-commit hooks
+- [commitlint](https://commitlint.js.org/) message validation
+- npm-enforced package manager via `.npmrc`
+
+#### Hook Configuration
+
+```bash
+# .husky/pre-commit
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run lint
+```
 
 1. Stage changes with `git add`
 2. Attempt commit - validation runs automatically
@@ -115,3 +130,13 @@ docs: update API reference documentation
 - All PRs require maintainer approval
 - Address review comments promptly
 - Keep discussion focused on the code
+
+## Release Process
+
+This project uses semantic-release for automated version management:
+
+- Commits must follow Conventional Commits specification
+- Merges to `main` trigger automated releases
+- Patch versions for `fix` commits
+- Minor versions for `feat` commits
+- Major versions for breaking changes (`BREAKING CHANGE` in footer)
