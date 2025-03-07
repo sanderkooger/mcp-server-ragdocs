@@ -11,10 +11,11 @@ git clone https://github.com/your-username/mcp-server-ragdocs.git
 cd mcp-server-ragdocs
 ```
 
-2. Install dependencies:
+2. Install dependencies (npm required):
 
 ```bash
 npm install
+# Enforced by .npmrc engine-strict=true
 ```
 
 3. Build the project:
@@ -32,7 +33,37 @@ npm run build
 
 ### Commit Process
 
-NOTE Write the process out in a better way!
+### Commit Validation Workflow
+
+We enforce commit standards through:
+
+- [Husky](https://typicode.github.io/husky/) pre-commit hooks
+- [commitlint](https://commitlint.js.org/) message validation
+- npm-enforced package manager via `.npmrc`
+
+#### Hook Configuration
+
+```bash
+# .husky/pre-commit
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run lint
+```
+
+1. Stage changes with `git add`
+2. Attempt commit - validation runs automatically
+3. If rejected:
+   - Fix message format
+   - Retry commit
+
+Example workflow:
+
+```bash
+git add .
+git commit -m "invalid message" # Fails
+git commit -m "feat: add validation workflow" # Succeeds
+```
 
 ### Pull Requests
 
@@ -50,7 +81,7 @@ NOTE Write the process out in a better way!
 
 ## Commit Message Format
 
-We enforce [Conventional Commits](https://www.conventionalcommits.org) using automated validation:
+We enforce [Conventional Commits](https://www.conventionalcommits.org) specification:
 
 ```
 <type>(<scope>): <description>
@@ -58,12 +89,24 @@ We enforce [Conventional Commits](https://www.conventionalcommits.org) using aut
 
 ### Allowed Types:
 
-- feat: New feature
-- fix: Bug fix
-- docs: Documentation changes
 - chore: Maintenance tasks
+- feat: New features
+- fix: Bug fixes
+- docs: Documentation changes
+- style: Code formatting
 - refactor: Code refactoring
-- test: Test additions/modifications
+- test: Test updates
+- revert: Revert changes
+- build: Build system updates
+- ci: CI configuration changes
+
+Examples:
+
+```bash
+feat: add documentation search endpoint
+fix: resolve timeout issues in queue processing
+docs: update API reference documentation
+```
 
 ## Pull Request Process
 
@@ -87,3 +130,13 @@ We enforce [Conventional Commits](https://www.conventionalcommits.org) using aut
 - All PRs require maintainer approval
 - Address review comments promptly
 - Keep discussion focused on the code
+
+## Release Process
+
+This project uses semantic-release for automated version management:
+
+- Commits must follow Conventional Commits specification
+- Merges to `main` trigger automated releases
+- Patch versions for `fix` commits
+- Minor versions for `feat` commits
+- Major versions for breaking changes (`BREAKING CHANGE` in footer)
