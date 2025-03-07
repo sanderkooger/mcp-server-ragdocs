@@ -4,24 +4,10 @@ on:
     branches: [main]
 
 jobs:
-  # install, lint, build and test
-  test:
-    name: TEst
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "lts/*"
-
   #next only install build and release package
   release:
     name: Release
-    needs: test
+
     runs-on: ubuntu-latest
     permissions:
       contents: write # to be able to publish a GitHub release
