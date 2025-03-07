@@ -24,6 +24,20 @@ npm install
 npm run build
 ```
 
+4. Format code with Prettier (using .prettierrc config):
+
+```bash
+npm run format
+```
+
+5. Check code quality with ESLint (using eslint.config.ts config):
+
+gh auth
+
+```bash
+npm run lint
+```
+
 ## Development Workflow
 
 ### Branch Strategy
