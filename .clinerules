@@ -48,3 +48,15 @@ This file stores agreed-upon conventions and prompt context for interacting with
    - Additional documentation files must include ## "A TITLE" section with:
      - One-sentence summary of the file's purpose
      - Link to the related MD file for detailed guidelines
+
+## RAG Documentation Usage (2025-03-07)
+
+- When installing packages, always add their documentation to ragdocs-mcp
+- Before starting problem solving, first query ragdocs-mcp for relevant documentation
+- Use RAG-based knowledge retrieval for technical decisions rather than assumptions
+
+## Package Management Rules (2025-03-07)
+
+- Never modify package.json directly - always use `npm install <package>` commands
+- Prefer exact version specifications when adding dependencies
+- Ensure< package-lock.json is committed after dependency changes
