@@ -38,6 +38,20 @@ This file stores agreed-upon conventions and prompt context for interacting with
 - Prefer exact version specifications when adding dependencies
 - Ensure< package-lock.json is committed after dependency changes
 
+## Testing Conventions
+
+- Use Jest with TypeScript for all unit tests
+- Follow AAA pattern (Arrange-Act-Assert)
+- Colocate tests with `*.test.ts` suffix next to source files
+- Use `__tests__` directories for complex modules
+- Maintain these coverage thresholds:
+  ```text
+  Statements: 80%
+  Branches: 75%
+  Functions: 85%
+  Lines: 80%
+  ```
+
 ## Documentation Structure
 
 1. Main README.md serves as package consumer documentation:

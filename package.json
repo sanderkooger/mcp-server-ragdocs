@@ -27,6 +27,7 @@
     "ci": "npm run build && npm run lint && npm run test",
     "test": "jest",
     "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage",
     "watch": "tsc --watch",
     "start": "node build/index.js",
     "inspector": "npx @modelcontextprotocol/inspector build/index.js",
@@ -60,7 +61,8 @@
     "cheerio": "1.0.0",
     "ollama": "^0.5.14",
     "openai": "4.76.2",
-    "playwright": "1.49.1"
+    "playwright": "1.49.1",
+    "tall": "^8.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",

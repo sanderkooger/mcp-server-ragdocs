@@ -132,7 +132,35 @@ git commit -m "feat: add validation workflow" # Succeeds
    - Prefer `describe.each` for parameterized tests
    - Mock external dependencies using Jest's mocking system
 
-5. **CI Integration**:
+5. **Example Test Structure**:
+
+```typescript
+// Example from src/tools/jestTestFunction.test.ts
+import { jestTestFunction } from './jestTestFunction'
+
+describe('jestTestFunction', () => {
+  it('should return true for valid inputs', () => {
+    // Arrange
+    const input = { test: true }
+
+    // Act
+    const result = jestTestFunction(input)
+
+    // Assert
+    expect(result).toBe(true)
+  })
+
+  it('should handle edge cases', () => {
+    // Test edge cases with proper mocking
+    jest.spyOn(console, 'log').mockImplementation()
+
+    expect(jestTestFunction(null)).toBe(false)
+    expect(console.log).toHaveBeenCalledWith('Invalid input')
+  })
+})
+```
+
+7. **CI Integration**:
    - Tests run on GitHub Actions for all PRs
    - Coverage tracked via Codecov
    - Failure blocks merge
