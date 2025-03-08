@@ -11,8 +11,10 @@ This file stores agreed-upon conventions and prompt context for interacting with
 ## Core Agreements
 
 - Repository hosts only one TypeScript package
+- Conform code you write with the rules in .prettierrc
+- Prefer arrow functions
 
-## GitHub MCP Usage (2025-03-06)
+## GitHub MCP Usage
 
 - Use GitHub MCP tools only for:
   - Issue/pull request comments
@@ -24,7 +26,19 @@ This file stores agreed-upon conventions and prompt context for interacting with
 - Never store GitHub credentials in code/configs
 - always read the .git/config, or root package.json of the repo you are working on to determine the repository owner and name
 
-## Documentation Structure (2025-03-06)
+## RagDocs Usage
+
+- When installing packages, always add their documentation to ragdocs-mcp
+- Before starting problem solving, first query ragdocs-mcp for relevant documentation
+- Use RAG-based knowledge retrieval for technical decisions rather than assumptions
+
+## Package Management Rules
+
+- Never modify package.json directly - always use `npm install <package>` commands
+- Prefer exact version specifications when adding dependencies
+- Ensure< package-lock.json is committed after dependency changes
+
+## Documentation Structure
 
 1. Main README.md serves as package consumer documentation:
 
@@ -48,15 +62,3 @@ This file stores agreed-upon conventions and prompt context for interacting with
    - Additional documentation files must include ## "A TITLE" section with:
      - One-sentence summary of the file's purpose
      - Link to the related MD file for detailed guidelines
-
-## RAG Documentation Usage (2025-03-07)
-
-- When installing packages, always add their documentation to ragdocs-mcp
-- Before starting problem solving, first query ragdocs-mcp for relevant documentation
-- Use RAG-based knowledge retrieval for technical decisions rather than assumptions
-
-## Package Management Rules (2025-03-07)
-
-- Never modify package.json directly - always use `npm install <package>` commands
-- Prefer exact version specifications when adding dependencies
-- Ensure< package-lock.json is committed after dependency changes
