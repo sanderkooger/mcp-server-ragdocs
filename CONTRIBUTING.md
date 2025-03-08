@@ -32,8 +32,6 @@ npm run format
 
 5. Check code quality with ESLint (using eslint.config.ts config):
 
-gh auth
-
 ```bash
 npm run lint
 ```
@@ -63,6 +61,12 @@ We enforce commit standards through:
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run lint
+
+# .husky/commit-msg
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx commitlint --edit "$1"
 ```
 
 1. Stage changes with `git add`
