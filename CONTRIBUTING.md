@@ -91,7 +91,51 @@ git commit -m "feat: add validation workflow" # Succeeds
 - Use descriptive variable/method names
 - Include JSDoc comments for public methods
 - Keep functions focused (single responsibility principle)
-- Write tests for new features using Jest
+
+### Testing Conventions
+
+1. **File Structure**:
+
+   - Test files must live adjacent to their implementation
+   - Naming pattern: `[filename].test.ts`
+   - Example:
+     ```
+     src/
+       tools/
+         base-tool.ts
+         base-tool.test.ts
+     ```
+
+2. **Test Execution**:
+
+   ```bash
+   # Run all tests
+   npm test
+
+   # Run tests for specific file
+   npm test src/tools/base-tool.test.ts
+
+   # Generate coverage report
+   npm run test:coverage
+   ```
+
+3. **Coverage Requirements**:
+
+   - Minimum 80% branch coverage
+   - Reports generated in /coverage
+   - CI blocks PRs with reduced coverage
+
+4. **Best Practices**:
+
+   - Test files must mirror source folder structure
+   - Use Jest's modern ESM syntax
+   - Prefer `describe.each` for parameterized tests
+   - Mock external dependencies using Jest's mocking system
+
+5. **CI Integration**:
+   - Tests run on GitHub Actions for all PRs
+   - Coverage tracked via Codecov
+   - Failure blocks merge
 
 ## Commit Message Format
 
