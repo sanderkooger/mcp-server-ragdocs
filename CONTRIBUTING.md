@@ -165,34 +165,37 @@ describe('jestTestFunction', () => {
    - Coverage tracked via Codecov
    - Failure blocks merge
 
-## Commit Message Format
+## Commit Message Guide
 
-We enforce [Conventional Commits](https://www.conventionalcommits.org) specification:
+Use the interactive wizard for standardized commits:
+
+```bash
+npm run commit
+```
+
+### Format
 
 ```
-<type>(<scope>): <description>
+type(scope): description [issue-number]
 ```
 
-### Allowed Types:
+### Valid Types:
 
-- chore: Maintenance tasks
-- feat: New features
-- fix: Bug fixes
+- feat: New feature
+- fix: Bug fix
 - docs: Documentation changes
 - style: Code formatting
 - refactor: Code refactoring
 - test: Test updates
-- revert: Revert changes
-- build: Build system updates
-- ci: CI configuration changes
+- chore: Maintenance tasks
 
-Examples:
+### Example:
 
-```bash
-feat: add documentation search endpoint
-fix: resolve timeout issues in queue processing
-docs: update API reference documentation
 ```
+fix(commit): Add interactive commit wizard [GH-6]
+```
+
+The wizard will validate your input and ensure proper formatting.
 
 ## Pull Request Process
 
