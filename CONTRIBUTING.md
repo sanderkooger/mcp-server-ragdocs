@@ -32,8 +32,6 @@ npm run format
 
 5. Check code quality with ESLint (using eslint.config.ts config):
 
-gh auth
-
 ```bash
 npm run lint
 ```
@@ -63,6 +61,12 @@ We enforce commit standards through:
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run lint
+
+# .husky/commit-msg
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx commitlint --edit "$1"
 ```
 
 1. Stage changes with `git add`
@@ -165,34 +169,51 @@ describe('jestTestFunction', () => {
    - Coverage tracked via Codecov
    - Failure blocks merge
 
-## Commit Message Format
+## Commit Message Guide
 
-We enforce [Conventional Commits](https://www.conventionalcommits.org) specification:
+Use the interactive wizard for standardized commits:
+
+```bash
+npm run commit
+```
+
+### Format
 
 ```
-<type>(<scope>): <description>
+type(scope): description [issue-number]
 ```
 
-### Allowed Types:
+### Valid Types:
 
-- chore: Maintenance tasks
-- feat: New features
-- fix: Bug fixes
+- feat: New feature (triggers minor release)
+- fix: Bug fix (triggers patch release)
+- perf: Performance improvement (triggers patch release)
 - docs: Documentation changes
 - style: Code formatting
 - refactor: Code refactoring
 - test: Test updates
-- revert: Revert changes
-- build: Build system updates
+- chore: Maintenance tasks (including releases)
+
+The Commitizen wizard will guide you through these types. Our configuration
+extends @commitlint/config-conventional which also recognizes:
+
+- build: Changes to build process (not currently used)
+- ci: CI configuration changes (not currently used)
+- revert: Revert commits (auto-generated)
+
+Official @commitlint/config-conventional types include:
+
+- build: Changes that affect the build system
 - ci: CI configuration changes
+- revert: Revert a previous commit
 
-Examples:
+### Example:
 
-```bash
-feat: add documentation search endpoint
-fix: resolve timeout issues in queue processing
-docs: update API reference documentation
 ```
+fix(commit): Add interactive commit wizard [GH-6]
+```
+
+The wizard will validate your input and ensure proper formatting.
 
 ## Pull Request Process
 

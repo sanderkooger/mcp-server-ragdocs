@@ -228,6 +228,30 @@ ollama list
 
 This MCP server is licensed under the MIT License. This means you are free to use, modify, and distribute the software, subject to the terms and conditions of the MIT License. For more details, please see the LICENSE file in the project repository.
 
+## Development Workflow
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Make your changes following the coding standards in CONTRIBUTING.md
+
+3. Commit changes using Commitizen:
+
+```bash
+npm run commit
+```
+
+4. Push to your feature branch:
+
+```bash
+git push origin feat/your-feature
+```
+
+5. Create a pull request through GitHub's interface
+
 ## Contributing
 
 We welcome contributions! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines, but here are the basics:

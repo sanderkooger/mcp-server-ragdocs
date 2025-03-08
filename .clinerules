@@ -14,17 +14,29 @@ This file stores agreed-upon conventions and prompt context for interacting with
 - Conform code you write with the rules in .prettierrc
 - Prefer arrow functions
 
-## GitHub MCP Usage
+## GitHub Integration Rules
 
-- Use GitHub MCP tools only for:
-  - Issue/pull request comments
-  - Creating/updating issues
-  - Repository metadata operations
-  - updating secrets
-  - etc
-- For commits/branches/pushes, use CLI commands
-- Never store GitHub credentials in code/configs
-- always read the .git/config, or root package.json of the repo you are working on to determine the repository owner and name
+### Local Operations (Use CLI)
+
+- All Git operations (commits/branches/pushes):
+  - Must use raw git commands
+  - Format commit messages directly via CLI
+  - Never use `npm run commit` or GitHub MCP tools
+
+### Platform Interactions (Use MCP)
+
+- Limit GitHub MCP to:
+  - PR management/comments
+  - Issue tracking
+  - Repository metadata
+  - Secret management
+
+### Security & Configuration
+
+- Never store credentials in code/configs
+- Derive repository info from:
+  - Local .git/config
+  - package.json metadata
 
 ## RagDocs Usage
 
@@ -36,7 +48,7 @@ This file stores agreed-upon conventions and prompt context for interacting with
 
 - Never modify package.json directly - always use `npm install <package>` commands
 - Prefer exact version specifications when adding dependencies
-- Ensure< package-lock.json is committed after dependency changes
+- Ensure package-lock.json is committed after dependency changes
 
 ## Testing Conventions
 
