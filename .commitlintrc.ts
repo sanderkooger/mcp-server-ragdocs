@@ -11,16 +11,17 @@ const Configuration: UserConfig = {
       RuleConfigSeverity.Error,
       'always',
       [
+        'build',
         'chore',
+        'ci',
+        'docs',
         'feat',
         'fix',
-        'docs',
-        'style',
+        'perf',
         'refactor',
-        'test',
         'revert',
-        'build',
-        'ci'
+        'style',
+        'test'
       ]
     ]
   },

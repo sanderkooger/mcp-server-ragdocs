@@ -181,13 +181,27 @@ type(scope): description [issue-number]
 
 ### Valid Types:
 
-- feat: New feature
-- fix: Bug fix
+- feat: New feature (triggers minor release)
+- fix: Bug fix (triggers patch release)
+- perf: Performance improvement (triggers patch release)
 - docs: Documentation changes
 - style: Code formatting
 - refactor: Code refactoring
 - test: Test updates
-- chore: Maintenance tasks
+- chore: Maintenance tasks (including releases)
+
+The Commitizen wizard will guide you through these types. Our configuration
+extends @commitlint/config-conventional which also recognizes:
+
+- build: Changes to build process (not currently used)
+- ci: CI configuration changes (not currently used)
+- revert: Revert commits (auto-generated)
+
+Official @commitlint/config-conventional types include:
+
+- build: Changes that affect the build system
+- ci: CI configuration changes
+- revert: Revert a previous commit
 
 ### Example:
 
