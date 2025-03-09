@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.2.4...v1.2.5) (2025-03-09)
+
+
+### Bug Fixes
+
+* fixed inspectorscript ([150389f](https://github.com/sanderkooger/mcp-server-ragdocs/commit/150389f6350df8d38b9eee8f28fd960be4693cea))
+
 ## [1.2.4](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.2.3...v1.2.4) (2025-03-09)
 
 
