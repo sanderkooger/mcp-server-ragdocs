@@ -1,4 +1,5 @@
 # MCP-server-ragdocs
+[![codecov](https://codecov.io/gh/sanderkooger/mcp-server-ragdocs/branch/main/graph/badge.svg)](https://codecov.io/gh/sanderkooger/mcp-server-ragdocs)
 
 [![Node.js Package](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/release.yml/badge.svg)](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/release.yml)
 ![NPM Downloads](https://img.shields.io/npm/dy/%40sanderkooger%2Fmcp-server-ragdocs)

@@ -4,6 +4,37 @@ on:
     branches: [main]
 
 jobs:
+  coverage:
+    name: Coverage
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: npm clean-install
+      - name: build the package
+        run: npm run build
+      - name: run CI runners
+        run: npm run ci
+      - name: run coverage
+        run: npm run coverage
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
   #next only install build and release package
   release:
     name: Release

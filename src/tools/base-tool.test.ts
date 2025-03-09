@@ -1,3 +1,4 @@
+import { expect, assert } from 'chai';
 import { BaseTool } from './base-tool.js'
 import type { ToolDefinition, McpToolResponse } from '../types.js'
 
@@ -35,9 +36,9 @@ describe('BaseTool', () => {
     tool = new MockTool()
   })
 
-  test('formats responses correctly', () => {
+  it('formats responses correctly', () => {
     const result = tool.testFormat({ test: 'data' })
-    expect(result).toEqual({
+    expect(result).to.deep.equal({
       content: [
         {
           type: 'text',
@@ -47,10 +48,10 @@ describe('BaseTool', () => {
     })
   })
 
-  test('handles errors properly', () => {
+  it('handles errors properly', () => {
     const error = new Error('Test error')
     const result = tool.testError(error)
-    expect(result).toEqual({
+    expect(result).to.deep.equal({
       content: [
         {
           type: 'text',
@@ -61,8 +62,8 @@ describe('BaseTool', () => {
     })
   })
 
-  test('requires concrete implementations', () => {
-    expect(tool.definition).toBeDefined()
-    expect(tool.execute).toBeDefined()
+  it('requires concrete implementations', () => {
+    assert.exists(tool.definition);
+    assert.exists(tool.execute);
   })
 })
