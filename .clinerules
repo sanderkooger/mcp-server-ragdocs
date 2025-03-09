@@ -14,6 +14,15 @@ This file stores agreed-upon conventions and prompt context for interacting with
 - Conform code you write with the rules in .prettierrc
 - Prefer arrow functions
 
+## TypeScript Configuration
+
+- Uses NodeNext module resolution (configured in tsconfig.json)
+- All imports must use explicit file extensions:
+  - `.js` for JavaScript/TypeScript files
+  - `.json` for JSON files
+  - Other asset types as appropriate
+- Type checking enabled for all files
+
 ## GitHub Integration Rules
 
 ### Local Operations (Use CLI)
@@ -52,7 +61,7 @@ This file stores agreed-upon conventions and prompt context for interacting with
 
 ## Testing Conventions
 
-- Use Jest with TypeScript for all unit tests
+- Use Mocha and Chai for all unit tests
 - Follow AAA pattern (Arrange-Act-Assert)
 - Colocate tests with `*.test.ts` suffix next to source files
 - Use `__tests__` directories for complex modules
