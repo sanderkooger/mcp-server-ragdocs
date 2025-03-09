@@ -83,5 +83,51 @@ describe('ClearQueueTool', () => {
         `Failed to clear queue: ${testError}`
       );
     });
+
+    it('should handle write operation failures', async () => {
+      // Arrange
+      const testError = new Error('Disk full');
+      fsStub.access.resolves();
+      fsStub.readFile.resolves('https://example.com/1\nhttps://example.com/2');
+      fsStub.writeFile.rejects(testError);
+
+      // Act
+      const result = await tool.execute({});
+
+      // Assert
+      expect(result.isError).to.equal(true);
+      expect(result.content[0]!.text).to.include(
+        `Failed to clear queue: ${testError}`
+      );
+    });
+
+    it('should handle existing empty file', async () => {
+      // Arrange
+      fsStub.access.resolves();
+      fsStub.readFile.resolves('');
+
+      // Act
+      const result = await tool.execute({});
+
+      // Assert
+      expect(fsStub.writeFile.calledWith(QUEUE_FILE, '')).to.equal(true);
+      expect(result.content[0]!.text).to.equal(
+        'Queue cleared successfully. Removed 0 URLs from the queue.'
+      );
+    });
+
+    it('should validate tool definition', () => {
+      // Act
+      const definition = tool.definition;
+
+      // Assert
+      expect(definition.name).to.equal('clear_queue');
+      expect(definition.description).to.equal('Clear all URLs from the queue');
+      expect(definition.inputSchema).to.deep.equal({
+        type: 'object',
+        properties: {},
+        required: []
+      });
+    });
   });
 });
