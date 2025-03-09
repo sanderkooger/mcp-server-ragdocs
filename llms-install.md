@@ -51,7 +51,7 @@ Add below example to your MCP server configuration
 ```
 
 ## Environment Variables Reference
-|-------------------------|---------------|--------------------------|-------------------------------|
+
 | Variable                | Required For  | Default                  | remarks                       |
 |-------------------------|---------------|--------------------------|-------------------------------|
 | `EMBEDDINGS_PROVIDER`   | All           | `ollama`                 | "openai" or "ollama"          |
@@ -59,4 +59,3 @@ Add below example to your MCP server configuration
 | `OLLAMA_BASE_URL`       | Ollama        | `http://localhost:11434` | Local Ollama server URL       |
 | `QDRANT_URL`            | All           | `http://localhost:6333`  | Qdrant endpoint URL           |
 | `QDRANT_API_KEY`        | Cloud Qdrant  | -                        | From Qdrant Cloud console     |
-|-------------------------|---------------|--------------------------|-------------------------------|

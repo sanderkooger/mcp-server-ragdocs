@@ -104,7 +104,7 @@ Add this to your `claude_desktop_config.json`:
 
 
 ## Environment Variables Reference
-|-------------------------|---------------|--------------------------|-------------------------------|
+
 | Variable                | Required For  | Default                  | remarks                       |
 |-------------------------|---------------|--------------------------|-------------------------------|
 | `EMBEDDINGS_PROVIDER`   | All           | `ollama`                 | "openai" or "ollama"          |
@@ -112,7 +112,8 @@ Add this to your `claude_desktop_config.json`:
 | `OLLAMA_BASE_URL`       | Ollama        | `http://localhost:11434` | Local Ollama server URL       |
 | `QDRANT_URL`            | All           | `http://localhost:6333`  | Qdrant endpoint URL           |
 | `QDRANT_API_KEY`        | Cloud Qdrant  | -                        | From Qdrant Cloud console     |
-|-------------------------|---------------|--------------------------|-------------------------------|
+
+
 ### Local Deployment
 
 The repository includes Docker Compose configuration for local development:
