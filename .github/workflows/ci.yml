@@ -20,4 +20,10 @@ jobs:
       - name: build the package
         run: npm run build
       - name: run CI runners
-        run: npm ci
+        run: npm run ci
+      - name: run coverage
+        run: npm run coverage
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
