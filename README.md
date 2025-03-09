@@ -1,9 +1,8 @@
 # MCP-server-ragdocs
-[![codecov](https://codecov.io/gh/sanderkooger/mcp-server-ragdocs/branch/main/graph/badge.svg)](https://codecov.io/gh/sanderkooger/mcp-server-ragdocs)
-
 [![Node.js Package](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/release.yml/badge.svg)](https://github.com/sanderkooger/mcp-server-ragdocs/actions/workflows/release.yml)
 ![NPM Downloads](https://img.shields.io/npm/dy/%40sanderkooger%2Fmcp-server-ragdocs)
 [![Version](https://img.shields.io/npm/v/@sanderkooger/mcp-server-ragdocs)](https://npmjs.com/package/@sanderkooger/mcp-server-ragdocs)
+[![codecov](https://codecov.io/gh/sanderkooger/mcp-server-ragdocs/branch/main/graph/badge.svg)](https://codecov.io/gh/sanderkooger/mcp-server-ragdocs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 An MCP server implementation that provides tools for retrieving and processing documentation through vector search, enabling AI assistants to augment their responses with relevant documentation context.
