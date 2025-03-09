@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.2.3...v1.2.4) (2025-03-09)
+
+
+### Bug Fixes
+
+* added logos and llm installation instructions ([56fac27](https://github.com/sanderkooger/mcp-server-ragdocs/commit/56fac273e1a38437e574b0865e96cffea82891ef))
+
 ## [1.2.3](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.2.2...v1.2.3) (2025-03-08)
 
 
