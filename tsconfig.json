@@ -5,7 +5,7 @@
     "module": "NodeNext", // Align with Node.js 22's ESM support
     "moduleResolution": "nodenext",
     "paths": {
-      "@tools/*": ["src/tools/*"]
+      "@tools/*": ["src/lib/*"]
     },
     "outDir": "./build",
     "rootDir": "./src",

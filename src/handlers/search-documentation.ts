@@ -22,8 +22,8 @@ export class SearchDocumentationHandler extends BaseHandler {
           vector: queryEmbedding,
           limit,
           with_payload: true,
-          with_vector: false, // Optimize network transfer by not retrieving vectors
-          score_threshold: 0.7 // Only return relevant results
+         // with_vector: false, // Optimize network transfer by not retrieving vectors
+         score_threshold: 0.7 // Only return relevant results
         }
       )
 
