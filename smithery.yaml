@@ -1,0 +1,57 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    properties:
+      MODEL:
+        type: string
+        default: nomic-embed-text
+        description: The model name to be used by Ollama. E.g., 'nomic-embed-text'.
+      EMBEDDINGS_PROVIDER:
+        type: string
+        default: ollama
+        description: "Embeddings provider. Options: 'ollama' or 'openai'."
+      OPENAI_API_KEY:
+        type: string
+        description: API key for OpenAI, if using openai as the provider.
+      OLLAMA_BASE_URL:
+        type: string
+        default: http://localhost:11434
+        description: The base URL for the Ollama service.
+      QDRANT_URL:
+        type: string
+        default: http://localhost:6333
+        description: The URL for the Qdrant vector database.
+      QDRANT_API_KEY:
+        type: string
+        description: API key for Qdrant, if required.
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => { 
+      // Merge provided config with process.env
+      const env = Object.assign({}, process.env, {
+        MODEL: config.MODEL,
+        EMBEDDINGS_PROVIDER: config.EMBEDDINGS_PROVIDER,
+        OLLAMA_BASE_URL: config.OLLAMA_BASE_URL,
+        QDRANT_URL: config.QDRANT_URL
+      });
+      if(config.OPENAI_API_KEY) env.OPENAI_API_KEY = config.OPENAI_API_KEY;
+      if(config.QDRANT_API_KEY) env.QDRANT_API_KEY = config.QDRANT_API_KEY;
+
+      // The entrypoint.sh script handles starting the Ollama service
+      // and then the MCP server is started by node from the built artifact
+      return {
+        command: 'sh',
+        args: ['-c', 'sh entrypoint.sh & node build/index.js'],
+        env
+      };
+    }
+  exampleConfig:
+    MODEL: nomic-embed-text
+    EMBEDDINGS_PROVIDER: ollama
+    OLLAMA_BASE_URL: http://localhost:11434
+    QDRANT_URL: http://localhost:6333
