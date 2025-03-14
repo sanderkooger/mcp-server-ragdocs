@@ -68,7 +68,7 @@
     "cheerio": "1.0.0",
     "ollama": "^0.5.14",
     "openai": "4.76.2",
-    "playwright": "1.49.1",
+    "playwright": "1.50.1",
     "tall": "^8.0.0"
   },
   "devDependencies": {
