@@ -23,7 +23,8 @@ export class SearchDocumentationHandler extends BaseHandler {
           limit,
           with_payload: true,
          // with_vector: false, // Optimize network transfer by not retrieving vectors
-         score_threshold: 0.7 // Only return relevant results
+         score_threshold: 0.4, // Temporary lower threshold for testing
+         with_vector: true // DEBUG: Include vector in response
         }
       )
 

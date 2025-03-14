@@ -102,6 +102,32 @@ Add this to your `claude_desktop_config.json`:
 }
 ```
 
+### Ollama run from this codebase
+```
+"ragdocs-mcp": {
+      "command": "node",
+      "args": [
+        "/home/sander/code/mcp-server-ragdocs/build/index.js"
+      ],
+      "env": {
+        "QDRANT_URL": "http://127.0.0.1:6333",
+        "EMBEDDINGS_PROVIDER": "ollama",
+        "OLLAMA_URL": "http://localhost:11434"
+      },
+      "alwaysAllow": [
+        "run_queue",
+        "list_queue",
+        "list_sources",
+        "search_documentation",
+        "clear_queue",
+        "remove_documentation",
+        "extract_urls"
+      ],
+      "timeout": 3600
+    }
+```
+
+
 
 ## Environment Variables Reference
 
