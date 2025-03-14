@@ -67,7 +67,7 @@
     "axios": "1.8.2",
     "cheerio": "1.0.0",
     "ollama": "^0.5.14",
-    "openai": "4.76.2",
+    "openai": "4.85.2",
     "playwright": "1.49.1",
     "tall": "^8.0.0"
   },
