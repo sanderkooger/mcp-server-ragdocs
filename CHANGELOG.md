@@ -1,3 +1,11 @@
+## [1.2.6](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.2.5...v1.2.6) (2025-03-14)
+
+
+### Bug Fixes
+
+* added docs and deploy bump ([28236e1](https://github.com/sanderkooger/mcp-server-ragdocs/commit/28236e1066c29df6e2ead296990d8a1deedc4ef1))
+* changed search results score_threshold to ensure returnign data ([6a9eb26](https://github.com/sanderkooger/mcp-server-ragdocs/commit/6a9eb26e460992e80f7da08661fe44b1042ba587))
+
 ## [1.2.5](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.2.4...v1.2.5) (2025-03-09)
 
 
