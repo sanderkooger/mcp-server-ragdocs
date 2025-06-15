@@ -11,6 +11,7 @@ if (!QDRANT_URL) throw new Error('QDRANT_URL environment variable required')
 const QDRANT_API_KEY = process.env['QDRANT_API_KEY']
 const EMBEDDINGS_PROVIDER = process.env['EMBEDDINGS_PROVIDER'] || 'ollama'
 const OLLAMA_BASE_URL = process.env['OLLAMA_BASE_URL']
+const PLAYWRIGHT_WS_ENDPOINT = process.env['PLAYWRIGHT_WS_ENDPOINT']
 
 if (!QDRANT_URL) {
   throw new Error('QDRANT_URL environment variable is required')
@@ -64,7 +65,11 @@ export class ApiClient {
    */
   async initBrowser() {
     if (!this.browser) {
-      this.browser = await chromium.launch()
+      if (PLAYWRIGHT_WS_ENDPOINT) {
+        this.browser = await chromium.connect(PLAYWRIGHT_WS_ENDPOINT)
+      } else {
+        this.browser = await chromium.launch()
+      }
     }
   }
 

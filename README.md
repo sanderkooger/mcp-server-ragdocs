@@ -15,6 +15,7 @@ An MCP server implementation that provides tools for retrieving and processing d
 - [Deployment](#deployment)
   - [Local Development](#local-development)
   - [Cloud Deployment](#cloud-deployment)
+- [Playwright Integration](#playwright-integration)
 - [Tools](#tools)
 - [Project Structure](#project-structure)
 - [Using Ollama Embeddings](#using-ollama-embeddings)
@@ -138,6 +139,7 @@ Add this to your `claude_desktop_config.json`:
 | `OLLAMA_BASE_URL`       | Ollama        | `http://localhost:11434` | Local Ollama server URL       |
 | `QDRANT_URL`            | All           | `http://localhost:6333`  | Qdrant endpoint URL           |
 | `QDRANT_API_KEY`        | Cloud Qdrant  | -                        | From Qdrant Cloud console     |
+| `PLAYWRIGHT_WS_ENDPOINT`| Playwright Remote | -                      | WebSocket endpoint for remote Playwright server (e.g., `ws://localhost:3000/`) |
 
 
 ### Local Deployment
@@ -170,6 +172,35 @@ For production deployments:
 ```bash
 QDRANT_URL=your-cloud-cluster-url
 QDRANT_API_KEY=your-cloud-api-key
+```
+
+## Playwright Integration
+
+This project supports running Playwright either locally or via a Docker container. This provides flexibility for environments where Playwright's dependencies might be challenging to install directly.
+
+### How it Works
+
+The `src/api-client.ts` file automatically detects the presence of the `PLAYWRIGHT_WS_ENDPOINT` environment variable:
+
+- **If `PLAYWRIGHT_WS_ENDPOINT` is set**: The application will attempt to connect to a remote Playwright server at the specified WebSocket endpoint using `chromium.connect()`. This is ideal for using a containerized Playwright instance.
+- **If `PLAYWRIGHT_WS_ENDPOINT` is not set**: The application will launch a local Playwright browser instance using `chromium.launch()`.
+
+### Running Playwright in Docker
+
+A `playwright` service has been added to the `docker-compose.yml` file to facilitate running Playwright in a Docker container.
+
+To start the Playwright server in Docker:
+
+```bash
+docker-compose up playwright
+```
+
+This command will pull the `mcr.microsoft.com/playwright:v1.53.0-noble` image and start a Playwright server accessible on port `3000` of your host machine.
+
+To configure your application to use this containerized Playwright instance, set the following environment variable:
+
+```bash
+PLAYWRIGHT_WS_ENDPOINT=ws://localhost:3000/
 ```
 
 ## Tools
