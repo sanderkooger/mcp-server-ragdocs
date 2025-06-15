@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.2.6...v1.3.0) (2025-06-15)
+
+
+### Features
+
+* added external wright support for non debian based distros ([7601e00](https://github.com/sanderkooger/mcp-server-ragdocs/commit/7601e00c021c1f4ecf15d1e318cc5bfcc866d38c))
+
 ## [1.2.6](https://github.com/sanderkooger/mcp-server-ragdocs/compare/v1.2.5...v1.2.6) (2025-03-14)
 
 
