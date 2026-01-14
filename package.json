@@ -62,7 +62,7 @@
   "homepage": "https://github.com/sanderkooger/mcp-server-ragdocs#readme",
   "dependencies": {
     "@azure/openai": "2.0.0",
-    "@modelcontextprotocol/sdk": "1.12.3",
+    "@modelcontextprotocol/sdk": "1.25.2",
     "@qdrant/js-client-rest": "1.14.1",
     "axios": "1.10.0",
     "cheerio": "1.1.0",
